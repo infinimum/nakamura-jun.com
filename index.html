@@ -1,138 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="referrer" content="no-referrer">
-  <meta name="theme-color" content="#081a2a">
-  <title>メンテナンスのお知らせ | Site Maintenance</title>
+  <meta name="theme-color" content="#f8f9fa">
+  <title>メンテナンスのお知らせ</title>
   <style>
     :root {
-      color-scheme: dark;
-      --background: #081a2a;
-      --surface: #10273b;
-      --text: #f3f8fc;
-      --secondary: #bbccda;
-      --accent: #57d5c1;
-      --accent-soft: rgba(87, 213, 193, .12);
-      --outline: rgba(210, 232, 245, .17);
-      --shadow: 0 34px 100px rgba(1, 10, 20, .28);
+      color-scheme: light;
+      --text: #303740;
+      --muted: #5a6470;
+      --line: #d8dfe5;
+      --accent: #334b60;
+      --background: #fafafa;
     }
     *, *::before, *::after { box-sizing: border-box; }
-    html { min-height: 100%; }
+    html { height: 100%; }
     body {
       min-height: 100vh;
       min-height: 100dvh;
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
-      background: radial-gradient(ellipse 65% 55% at 88% 12%, rgba(36, 128, 149, .20), transparent 73%),
-                  radial-gradient(ellipse 55% 60% at 5% 95%, rgba(37, 73, 129, .26), transparent 74%),
-                  var(--background);
+      padding: 40px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--background);
       color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 48px 24px;
-      line-height: 1.8;
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, system-ui, sans-serif;
+      line-height: 1.9;
       -webkit-font-smoothing: antialiased;
     }
-    .page { width: min(100%, 820px); }
-    .topline {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      margin: 0 0 22px;
-      color: #a8bbca;
-      font-size: .75rem;
-      letter-spacing: .19em;
-      font-weight: 700;
+    main {
+      width: 100%;
+      max-width: 680px;
+      padding: 54px 56px 48px;
+      background: #fff;
+      border: 1px solid var(--line);
     }
-    .brandmark { display: flex; align-items: center; gap: 10px; }
-    .divider-line { flex: 1; height: 1px; background: var(--outline); }
-    .panel {
-      background: linear-gradient(134deg, rgba(22, 50, 72, .93), rgba(9, 29, 46, .96));
-      border: 1px solid var(--outline);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
+    .label {
+      margin: 0 0 15px;
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .09em;
     }
-    .panel::before {
-      content: "";
-      position: absolute;
-      width: 350px;
-      height: 350px;
-      border: 1px solid rgba(129, 210, 219, .09);
-      border-radius: 50%;
-      right: -154px;
-      top: -180px;
-      pointer-events: none;
+    h1 {
+      margin: 0;
+      color: #293540;
+      font-size: clamp(1.45rem, 3.5vw, 1.95rem);
+      font-weight: 600;
+      line-height: 1.55;
+      letter-spacing: .035em;
     }
-    .content { padding: clamp(32px, 6vw, 74px); position: relative; z-index: 1; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 7px 13px;
-      border: 1px solid rgba(87, 213, 193, .3);
-      border-radius: 999px;
-      color: #a0f0e3;
-      background: var(--accent-soft);
-      font-size: .74rem;
-      font-weight: 700;
-      letter-spacing: .06em;
-      line-height: 1.45;
+    .rule {
+      width: 48px;
+      height: 2px;
+      margin: 28px 0 30px;
+      background: var(--accent);
     }
-    .status-dot { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(87, 213, 193, .12); }
-    h1 { margin: 28px 0 22px; font-weight: 800; font-size: clamp(1.9rem, 3.45vw, 2.75rem); line-height: 1.48; letter-spacing: .025em; }
-    .lead { margin: 0 0 22px; font-size: clamp(.95rem, 1.6vw, 1.02rem); color: #e1eaf2; line-height: 2.05; }
-    .note { margin: 0; font-size: .91rem; color: var(--secondary); line-height: 2.0; }
-    .notice { margin-top: 34px; padding: 18px 20px; background: rgba(5, 21, 35, .47); border: 1px solid var(--outline); border-radius: 13px; }
-    .notice-title { font-size: .78rem; color: #98b9cc; letter-spacing: .07em; font-weight: 700; margin: 0 0 7px; }
-    .notice-text { font-size: .89rem; line-height: 1.85; margin: 0; color: #e2edf3; }
-    .footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 22px; color: #98b0c1; font-size: .72rem; letter-spacing: .045em; }
-    .footer span:last-child { color: #85d6ce; }
-    @media (max-width: 480px) {
-      body { padding: 24px 15px; }
-      .panel { border-radius: 18px; }
-      .content { padding: 30px 24px 22px; }
-      h1 { font-size: 1.7rem; line-height: 1.5; }
-      .lead { font-size: .93rem; }
-      .note { font-size: .86rem; }
-      .notice { padding: 16px; }
-      .topline { font-size: .67rem; }
-      .footer { line-height: 1.6; }
+    p {
+      margin: 0 0 18px;
+      font-size: 1rem;
+      line-height: 2;
     }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }
+    .detail { color: var(--muted); }
+    .reopen {
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-size: .91rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+    .reopen strong { color: var(--text); font-weight: 600; }
+    @media (max-width: 600px) {
+      body { padding: 20px 16px; }
+      main { padding: 36px 26px; }
+      .rule { margin: 24px 0 26px; }
+      p { font-size: .94rem; }
+      .reopen { font-size: .87rem; }
+    }
   </style>
 </head>
 <body>
-  <main class="page">
-    <div class="topline" aria-hidden="true">
-      <div class="brandmark">
-        <span>WEBSITE NOTICE</span>
-      </div>
-      <span class="divider-line"></span>
-      <span>MAINTENANCE</span>
-    </div>
+  <main>
+    <p class="label">ウェブサイトからのお知らせ</p>
+    <h1>メンテナンスのお知らせ</h1>
+    <div class="rule" aria-hidden="true"></div>
 
-    <section class="panel" aria-labelledby="main-title">
-      <div class="content">
-        <span class="eyebrow"><span class="status-dot"></span>サイトメンテナンスのお知らせ</span>
-        <h1 id="main-title">ただいま<br>メンテナンス中です。</h1>
-        <p class="lead">現在、サーバー環境の安全性確認および必要なメンテナンスを実施しております。<br>このため、一時的にWebサイトをご利用いただけません。</p>
-        <p class="note">ご利用の皆様にはご不便・ご迷惑をおかけし、誠に申し訳ございません。<br>安全なサービス提供に向けて対応を進めておりますので、何卒ご理解賜りますようお願い申し上げます。</p>
-        <div class="notice" role="status">
-          <p class="notice-title">再開について</p>
-          <p class="notice-text">再開時刻は現在未定です。メンテナンス完了後、通常のWebサイト表示に戻ります。恐れ入りますが、時間をおいて再度アクセスをお願いいたします。</p>
-        </div>
-      </div>
-    </section>
-    <footer class="footer">
-      <span>ご理解とご協力を賜りますようお願い申し上げます。</span>
-      <span>Thank you for your patience.</span>
-    </footer>
+    <p>現在、サーバー環境の安全性確認およびメンテナンスを実施しております。</p>
+    <p>このため、一時的に当ウェブサイトをご覧いただけない状況となっております。</p>
+    <p class="detail">皆様にはご不便とご迷惑をおかけいたしますが、何卒ご理解を賜りますようお願い申し上げます。</p>
+
+    <div class="reopen">
+      <strong>公開再開について</strong><br>
+      現時点で再開時刻は未定です。<br>
+      恐れ入りますが、しばらく時間をおいてから再度アクセスいただきますようお願いいたします。
+    </div>
   </main>
 </body>
 </html>
